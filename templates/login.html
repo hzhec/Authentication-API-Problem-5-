@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login Page</h1>
+
+    {% block content %}
+    <div class="container">
+      {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">
+          &times;
+        </button>
+        {{ message }}
+      </div>
+      <br />
+      {% endfor %} {% block page_content %}{% endblock %}
+    </div>
+    {% endblock %}
+
+    <form method="POST" action="">
+      {{ form.hidden_tag() }} {{ form.country_user }} {{ form.password }}
+      {{form.submit }}
+    </form>
+    <br />
+    Login Example: sggalvin<br />
+    Country Code - SG<br />
+    Username - Galvin
+    <br /><br />
+    <br />
+    <a href="{{url_for('register')}}">Don't have an account? Sign up here!</a
+    ><br />
+    <a href="{{url_for('home')}}">Home</a><br />
+  </body>
+</html>
